@@ -34,7 +34,7 @@ public class MessagingConfiguration
 		connectionFactory.setUserName("root");
 		connectionFactory.setPassword("estrellaestrella");
 		connectionFactory
-				.setTrustedPackages(Arrays.asList("com.ram"));
+				.setTrustedPackages(Arrays.asList("com.smp.core.app.services.message"));
 		return connectionFactory;
 	}
 

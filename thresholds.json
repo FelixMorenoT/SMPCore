@@ -1,0 +1,28 @@
+{
+  "51": {
+    "name": "Saturación oxigeno arterial",
+    "min": "90",
+    "max": "95"
+  },
+  "43": {
+    "name": "Frecuencia Cardiaca",
+    "min": "60",
+    "max": "100"
+  },
+  "45": {
+    "name": "Tension Arterial Sistolica",
+    "min": "100",
+    "max": "160"
+  },
+  "46": {
+    "name": "Tension Arterial Diastolica",
+    "min": "65",
+    "max": "90"
+  },
+  "70": {
+    "name": "Frecuencia respiratoria",
+    "min": "11",
+    "max": "29"
+  }
+}
+
