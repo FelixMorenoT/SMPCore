@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smp.core.app.entity.Alarmas;
 import com.smp.core.app.services.message.AlarmasServiceRepository;
+import com.smp.core.app.services.message.ISignos;
 
 @Component
 public class MessageReceiver implements MessageListener
@@ -32,6 +33,9 @@ public class MessageReceiver implements MessageListener
 	@Autowired
 	private AlarmasServiceRepository servicesSignos;
 	
+	@Autowired
+	private ISignos signosRepo;
+	
 	public void onMessage(Message message)
 	{
 		try
@@ -42,6 +46,7 @@ public class MessageReceiver implements MessageListener
 			
 			String product = (String) messageConverter.fromMessage(message);
 			m = mapper.readValue(product, Alarmas.class);
+			m.setDescripcionMedida(signosRepo.findBySignoCode(m.getMedida()));
 			servicesSignos.saveSignos(m);
 			log.info("MQ Finish");
 		}
