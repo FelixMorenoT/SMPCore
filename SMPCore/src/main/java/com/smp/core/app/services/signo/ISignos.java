@@ -1,4 +1,4 @@
-package com.smp.core.app.services.message;
+package com.smp.core.app.services.signo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

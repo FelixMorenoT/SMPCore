@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Alarmas {
+public class Alarma {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +33,11 @@ public class Alarmas {
 	
 	
 	
-	public Alarmas() {
+	public Alarma() {
 		
 	}
 
-	public Alarmas(String medida, String paciente, String valor, String timestamp) {
+	public Alarma(String medida, String paciente, String valor, String timestamp) {
 		this.medida = medida;
 		this.paciente = paciente;
 		this.valor = valor;

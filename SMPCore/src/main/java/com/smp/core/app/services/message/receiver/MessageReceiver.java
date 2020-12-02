@@ -14,9 +14,9 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.smp.core.app.entity.Alarmas;
-import com.smp.core.app.services.message.AlarmasServiceRepository;
-import com.smp.core.app.services.message.ISignos;
+import com.smp.core.app.entity.Alarma;
+import com.smp.core.app.services.alarma.AlarmasServiceRepository;
+import com.smp.core.app.services.signo.ISignos;
 
 @Component
 public class MessageReceiver implements MessageListener
@@ -42,10 +42,10 @@ public class MessageReceiver implements MessageListener
 		{
 			log.info("MQ Init");
 			ObjectMapper mapper = new ObjectMapper();
-			Alarmas m = new Alarmas();
+			Alarma m = new Alarma();
 			
 			String product = (String) messageConverter.fromMessage(message);
-			m = mapper.readValue(product, Alarmas.class);
+			m = mapper.readValue(product, Alarma.class);
 			m.setDescripcionMedida(signosRepo.findBySignoCode(m.getMedida()));
 			servicesSignos.saveSignos(m);
 			log.info("MQ Finish");

@@ -1,9 +1,11 @@
-package com.smp.core.app.services.message;
+package com.smp.core.app.services.alarma;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.smp.core.app.entity.Alarmas;
+import com.smp.core.app.entity.Alarma;
 
 @Service
 public class AlarmasServiceRepository {
@@ -12,7 +14,11 @@ public class AlarmasServiceRepository {
 	private IAlarmasRepository repo;
 	
 	
-	public Alarmas saveSignos(Alarmas signos) {
+	public Alarma saveSignos(Alarma signos) {
 		return repo.saveSignos(signos);
+	}
+	
+	public List<Alarma> getLists(){
+		return repo.getLists();
 	}
 }
